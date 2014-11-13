@@ -1,0 +1,23 @@
+<launch>
+  <arg name="gui" default="true"/>
+  <arg name="robot" default="true"/>
+  <arg name="master" default="true"/>
+  <arg name="map" default="robocup1"/>
+
+  <include file="$(find stdr_robot)/launch/robot_manager.launch" />
+
+  <node type="stdr_server_node" pkg="stdr_server" name="stdr_server" args="$(find pandora_stdr)/resources/maps/$(arg map).yaml"/>
+
+  <node pkg="tf" type="static_transform_publisher" name="world2map" args="0 0 0 0 0 0  world map 100" />
+
+  <include if="$(arg gui)"
+    file="$(find stdr_gui)/launch/stdr_gui.launch"/>
+
+  <include if="$(arg robot)"
+    file="$(find pandora_stdr)/launch/spawn_robot.launch" />
+
+  <group if="$(arg master)">
+    <node pkg="master_discovery_fkie" type="master_discovery" name="master_discovery" />
+  </group>
+
+</launch>

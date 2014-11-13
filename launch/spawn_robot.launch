@@ -1,0 +1,5 @@
+<launch>
+
+  <node pkg="stdr_robot" type="robot_handler" name="$(anon robot_spawn)" args="add $(find pandora_stdr)/resources/pandora_new.xml 0.6 0.6 0" />
+
+</launch>
