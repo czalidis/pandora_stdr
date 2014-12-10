@@ -1,0 +1,9 @@
+<launch>
+
+  <include file="$(find pandora_stdr)/launch/client.launch" />
+
+  <node name="laser_rmap" type="tf_remmapper.py" pkg="pandora_stdr" />
+
+  <node name="cmd_vel_relay" type="relay" pkg="topic_tools" args="/cmd_vel /robot0/cmd_vel" />
+
+</launch>

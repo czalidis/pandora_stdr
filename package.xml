@@ -18,6 +18,7 @@
   <run_depend>rviz</run_depend>
   <run_depend>master_discovery_fkie</run_depend>
   <run_depend>master_sync_fkie</run_depend>
+  <run_depend>topic_tools</run_depend>
 
 
   <!-- The export tag contains other, unspecified, tags -->
